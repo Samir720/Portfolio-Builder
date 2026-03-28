@@ -1,20 +1,39 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
+import emailjs from "@emailjs/browser";
 import { Reveal } from "@/components/Reveal";
-import { Mail, Phone, MapPin, Clock, Send, CheckCircle2, Loader2 } from "lucide-react";
+import { Mail, Phone, MapPin, Clock, Send, CheckCircle2, Loader2, AlertCircle } from "lucide-react";
 import { cn } from "@/lib/utils";
 
+const EMAILJS_SERVICE_ID = "service_j6qst99";
+const EMAILJS_TEMPLATE_ID = "template_contact";
+const EMAILJS_PUBLIC_KEY = "0hIlNieRWqN6KAInR";
+
 export function Contact() {
-  const [status, setStatus] = useState<"idle" | "loading" | "success">("idle");
+  const formRef = useRef<HTMLFormElement>(null);
+  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
   const [msgLength, setMsgLength] = useState(0);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (!formRef.current) return;
+
     setStatus("loading");
-    // Fake submit
-    setTimeout(() => {
+
+    try {
+      await emailjs.sendForm(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
+        formRef.current,
+        { publicKey: EMAILJS_PUBLIC_KEY }
+      );
       setStatus("success");
-      setTimeout(() => setStatus("idle"), 3000);
-    }, 1500);
+      formRef.current.reset();
+      setMsgLength(0);
+      setTimeout(() => setStatus("idle"), 4000);
+    } catch {
+      setStatus("error");
+      setTimeout(() => setStatus("idle"), 4000);
+    }
   };
 
   return (
@@ -82,13 +101,14 @@ export function Contact() {
 
           {/* Form */}
           <Reveal delay={300}>
-            <form onSubmit={handleSubmit} className="flex flex-col gap-8 rounded-3xl border border-border bg-surface/50 p-8 backdrop-blur-md md:p-10">
+            <form ref={formRef} onSubmit={handleSubmit} className="flex flex-col gap-8 rounded-3xl border border-border bg-surface/50 p-8 backdrop-blur-md md:p-10">
               <div className="relative group">
-                <input 
-                  type="text" 
-                  id="name" 
+                <input
+                  type="text"
+                  id="name"
+                  name="from_name"
                   required
-                  className="peer w-full border-b border-border bg-transparent py-4 text-foreground outline-none transition-colors focus:border-primary placeholder-transparent" 
+                  className="peer w-full border-b border-border bg-transparent py-4 text-foreground outline-none transition-colors focus:border-primary placeholder-transparent"
                   placeholder="Full Name"
                 />
                 <label htmlFor="name" className="pointer-events-none absolute left-0 top-4 text-muted transition-all peer-focus:-top-3 peer-focus:text-xs peer-focus:text-primary peer-[:not(:placeholder-shown)]:-top-3 peer-[:not(:placeholder-shown)]:text-xs">
@@ -97,11 +117,12 @@ export function Contact() {
               </div>
 
               <div className="relative group">
-                <input 
-                  type="email" 
-                  id="email" 
+                <input
+                  type="email"
+                  id="email"
+                  name="reply_to"
                   required
-                  className="peer w-full border-b border-border bg-transparent py-4 text-foreground outline-none transition-colors focus:border-primary placeholder-transparent" 
+                  className="peer w-full border-b border-border bg-transparent py-4 text-foreground outline-none transition-colors focus:border-primary placeholder-transparent"
                   placeholder="Email Address"
                 />
                 <label htmlFor="email" className="pointer-events-none absolute left-0 top-4 text-muted transition-all peer-focus:-top-3 peer-focus:text-xs peer-focus:text-primary peer-[:not(:placeholder-shown)]:-top-3 peer-[:not(:placeholder-shown)]:text-xs">
@@ -110,11 +131,12 @@ export function Contact() {
               </div>
 
               <div className="relative group">
-                <input 
-                  type="text" 
-                  id="subject" 
+                <input
+                  type="text"
+                  id="subject"
+                  name="subject"
                   required
-                  className="peer w-full border-b border-border bg-transparent py-4 text-foreground outline-none transition-colors focus:border-primary placeholder-transparent" 
+                  className="peer w-full border-b border-border bg-transparent py-4 text-foreground outline-none transition-colors focus:border-primary placeholder-transparent"
                   placeholder="Subject"
                 />
                 <label htmlFor="subject" className="pointer-events-none absolute left-0 top-4 text-muted transition-all peer-focus:-top-3 peer-focus:text-xs peer-focus:text-primary peer-[:not(:placeholder-shown)]:-top-3 peer-[:not(:placeholder-shown)]:text-xs">
@@ -123,13 +145,14 @@ export function Contact() {
               </div>
 
               <div className="relative group mt-4">
-                <textarea 
-                  id="message" 
+                <textarea
+                  id="message"
+                  name="message"
                   required
                   rows={4}
                   maxLength={500}
                   onChange={(e) => setMsgLength(e.target.value.length)}
-                  className="peer w-full resize-none border-b border-border bg-transparent py-4 text-foreground outline-none transition-colors focus:border-primary placeholder-transparent" 
+                  className="peer w-full resize-none border-b border-border bg-transparent py-4 text-foreground outline-none transition-colors focus:border-primary placeholder-transparent"
                   placeholder="Your Message"
                 />
                 <label htmlFor="message" className="pointer-events-none absolute left-0 top-4 text-muted transition-all peer-focus:-top-3 peer-focus:text-xs peer-focus:text-primary peer-[:not(:placeholder-shown)]:-top-3 peer-[:not(:placeholder-shown)]:text-xs">
@@ -140,18 +163,26 @@ export function Contact() {
                 </div>
               </div>
 
-              <button 
-                type="submit" 
-                disabled={status !== "idle"}
+              {status === "error" && (
+                <div className="flex items-center gap-2 rounded-xl border border-red-500/30 bg-red-500/10 px-4 py-3 text-sm text-red-400">
+                  <AlertCircle size={16} />
+                  Something went wrong. Please try again or email me directly.
+                </div>
+              )}
+
+              <button
+                type="submit"
+                disabled={status === "loading" || status === "success"}
                 className={cn(
                   "mt-6 flex w-full items-center justify-center gap-2 rounded-xl py-4 font-bold text-background transition-all",
-                  status === "success" ? "bg-secondary text-background" : "bg-primary hover:bg-primary/90",
-                  status === "loading" && "opacity-80"
+                  status === "success" ? "bg-secondary" : status === "error" ? "bg-red-500/80" : "bg-primary hover:bg-primary/90 hover:shadow-[0_4px_20px_rgba(167,139,250,0.3)]",
+                  status === "loading" && "opacity-80 cursor-not-allowed"
                 )}
               >
                 {status === "idle" && <><Send size={18} /> Send Message</>}
                 {status === "loading" && <><Loader2 size={18} className="animate-spin" /> Sending...</>}
-                {status === "success" && <><CheckCircle2 size={18} /> Sent Successfully</>}
+                {status === "success" && <><CheckCircle2 size={18} /> Message Sent!</>}
+                {status === "error" && <>Try Again</>}
               </button>
             </form>
           </Reveal>

@@ -60,7 +60,7 @@ export function About() {
                   I'm a Full Stack Web Developer located in Godhra, Gujarat, currently pursuing my BCA at ITM SLS Baroda University while working at adXcode Agency.
                 </p>
                 <p>
-                  I bridge the gap between design and engineering — combining my technical knowledge with a keen eye for aesthetics to create beautiful, functional, and highly performant web applications. From complex backend architectures in Node.js to sleek frontend interfaces in React, I build digital experiences from the ground up.
+                  I bridge the gap between design and engineering — combining my technical knowledge with a keen eye for aesthetics to create beautiful, functional, and highly performant web applications. From complex backend architectures in Node.js and FastAPI to frontend interfaces in React, I build digital experiences from the ground up.
                 </p>
               </div>
             </Reveal>

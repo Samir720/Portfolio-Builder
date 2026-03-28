@@ -11,7 +11,7 @@ const SKILLS = [
   { name: "MongoDB", percent: 75 },
   { name: "Express.js", percent: 70 },
   { name: "React", percent: 70 },
-  { name: "Next.js", percent: 70 },
+  { name: "FastAPI", percent: 65 },
 ];
 
 const TOOLS = ["VS Code", "Postman", "Git", "GitHub", "Figma", "Supabase", "MySQL Workbench", "Chrome DevTools"];

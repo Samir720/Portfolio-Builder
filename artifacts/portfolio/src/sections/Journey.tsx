@@ -2,12 +2,12 @@ import { Reveal } from "@/components/Reveal";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 
 const TIMELINE = [
-  { year: "2025", title: "BCA Started", desc: "Enrolled in ITM SLS Baroda University" },
-  { year: "2024", title: "MERN Expertise", desc: "Mastered full stack architecture & completed major certifications" },
-  { year: "2023", title: "Joined adXcode", desc: "Started working professionally at adXcode Agency" },
-  { year: "2023", title: "Backend Deep Dive", desc: "Learned Node.js, Express, MongoDB, and MySQL" },
-  { year: "2022", title: "Frontend Mastery", desc: "Mastered React.js and modern ES6+ JavaScript" },
-  { year: "2021", title: "Hello World", desc: "Wrote my first lines of HTML/CSS/JS" },
+  { year: "2026", title: "Exploring AI/ML", desc: "Exploring AI/ML — built a chatbot with API integration, started working on a personal startup, and adapting to the new AI era." },
+  { year: "2025", title: "BCA Started", desc: "Enrolled in ITM SLS Baroda University. Also learned FastAPI and participated in a Hackathon at university." },
+  { year: "2024", title: "Frontend Mastery", desc: "Learned React.js and modern ES6+ JavaScript." },
+  { year: "2023", title: "Backend Deep Dive", desc: "Learned Node.js, Express, MongoDB, and MySQL." },
+  { year: "2022", title: "First Backend", desc: "Mastered PHP and databases like MySQL. Also learned jQuery." },
+  { year: "2021", title: "Hello World", desc: "Wrote my first lines of HTML/CSS/JS." },
 ];
 
 export function Journey() {

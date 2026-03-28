@@ -62,7 +62,7 @@ export function Hero() {
         <p 
           className={`mx-auto mt-8 max-w-2xl text-lg text-muted md:text-xl transition-all duration-700 delay-600 ${mounted ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}`}
         >
-          Full Stack Developer · MERN Stack · PHP · Based in India
+          Full Stack Developer · React · Node.js · PHP · FastAPI · Based in India
           <br className="hidden sm:block" /> Building digital experiences that actually work.
         </p>
 
@@ -92,7 +92,7 @@ export function Hero() {
           {/* Duplicate list for seamless loop */}
           {[...Array(2)].map((_, idx) => (
             <div key={idx} className="flex gap-12">
-              {['React.js', 'Node.js', 'MongoDB', 'Express', 'PHP', 'Tailwind CSS', 'Next.js', 'MySQL', 'TypeScript', 'Figma'].map((tech, i) => (
+              {['React.js', 'Node.js', 'MongoDB', 'Express', 'PHP', 'FastAPI', 'Tailwind CSS', 'MySQL', 'TypeScript', 'Figma'].map((tech, i) => (
                 <span key={i} className="flex items-center gap-4 font-display text-xl font-bold uppercase tracking-wider text-muted/50 hover:text-primary/80 transition-colors cursor-default">
                   {tech}
                   <span className="text-primary/30">✦</span>
