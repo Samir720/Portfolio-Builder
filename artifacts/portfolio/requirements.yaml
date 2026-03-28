@@ -1,9 +1,0 @@
-packages:
-  "clsx": "Utility for constructing className strings conditionally"
-  "tailwind-merge": "Utility to safely merge Tailwind CSS classes without style conflicts"
-images: []
-notes:
-  - Pure React implementation with no external animation libraries (no Framer Motion, GSAP, etc.)
-  - All scroll animations are powered by IntersectionObserver and CSS transitions
-  - Uses CSS data URI for the noise grain texture to avoid external asset dependencies
-  - All content is hardcoded as per instructions

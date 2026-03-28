@@ -4,9 +4,17 @@
 
 pnpm workspace monorepo using TypeScript. Each package manages its own dependencies.
 
-## Artifacts
+## Portfolio (Root)
 
-- **`artifacts/portfolio`** (`@workspace/portfolio`) — Samir Mansuri's personal portfolio website. React + Vite, dark "Neon Noir" theme, all sections with CSS/JS animations (no GSAP/AOS), deployed at `/`. Uses Space Grotesk + Inter fonts.
+The portfolio lives at the **workspace root** (not inside `artifacts/`). This means Vercel can deploy it as a standard Vite/React project without monorepo complexity.
+
+- `src/` — All React source files (components, sections, hooks, pages)
+- `index.html` — Entry HTML with Google Fonts (Space Grotesk + Inter)
+- `vite.config.ts` — Vite config, reads `PORT` env var optionally (defaults to 3000)
+- `tsconfig.json` — TypeScript config for the portfolio
+- `tsconfig.libs.json` — TypeScript solution file for the shared lib packages (renamed from `tsconfig.json`)
+- Artifact config: `artifacts/portfolio/.replit-artifact/artifact.toml` (runs `pnpm -w run dev` from workspace root)
+- **Vercel deploy:** Detects Vite automatically, runs `pnpm run build`, outputs to `dist/`
 
 ## Stack
 
