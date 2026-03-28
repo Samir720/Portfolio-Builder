@@ -1,0 +1,301 @@
+Build a complete, single-file HTML/CSS/JS portfolio website for Samir Mansuri
+— a Gen-Z Full Stack Web Developer from Godhra, Gujarat, India. The site must
+feel handcrafted, editorial, and human — NOT like a template or AI-generated
+output. Every section must be fully animated, responsive on all screen sizes,
+and built with zero external JS or CSS libraries.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━
+👤 PERSONAL DETAILS
+━━━━━━━━━━━━━━━━━━━━━━━━━
+Name:           Samir Mansuri
+Title:          Full Stack Web Developer
+Tagline:        Building digital experiences that actually work.
+Location:       Godhra, Gujarat, India
+Email:          mansurisamir493@gmail.com
+Phone:          +91 9409593511
+Availability:   Mon–Sat, 9AM–9PM IST
+Experience:     3.5+ Years
+Projects:       10+
+Satisfaction:   100%
+Currently:      Working at adXcode Agency + Pursuing BCA at
+                ITM SLS Baroda University (2025–2028)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━
+🎨 COLOR THEME — "Dark Neon Noir"
+━━━━━━━━━━━━━━━━━━━━━━━━━
+Background:      #080808  (near-black)
+Surface cards:   #111111 / #161616
+Primary accent:  #A78BFA  (soft electric violet)
+Secondary:       #34D399  (emerald mint)
+Text primary:    #F5F5F5
+Text muted:      #6B7280
+Border/lines:    #1F1F1F to #2D2D2D
+Gradient combo:  violet → emerald (used sparingly on CTAs, tags, highlights)
+
+Rules:
+- Do NOT use blue anywhere.
+- Do NOT use generic purple-to-pink gradients.
+- Palette must feel intentional and editorial — think Vercel meets an
+  indie design-savvy dev blog.
+- Grain/noise texture: subtle SVG noise filter layered over the full page
+  at ~4% opacity for a tactile, printed feel.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━
+🧬 DESIGN LANGUAGE — Gen-Z Dev Aesthetic
+━━━━━━━━━━━━━━━━━━━━━━━━━
+Typography:
+- Headings: "Space Grotesk" (Google Font), weight 800
+- Body: "Inter" (Google Font), weight 400
+- Mix weights dramatically. Big headings feel editorial and oversized.
+
+Details:
+- Thin 1px horizontal rule lines (#1F1F1F) between sections.
+- Stat numbers displayed in huge oversized type with small muted label below
+  (editorial magazine style).
+- Skill tags: pill-shaped, dark bg (#1A1A1A), colored left border or dot.
+- Generous section padding — content breathes, never cramped.
+- NO hero illustrations, NO Lottie files, NO stock images.
+- Hero is entirely text-based with a floating "Available for Work ✦" badge.
+- Custom scrollbar: thin track (dark), violet thumb.
+- Smooth scroll: scroll-behavior: smooth on html element.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━
+✨ ANIMATIONS — FULL SPEC
+━━━━━━━━━━━━━━━━━━━━━━━━━
+All animations: CSS keyframes + transitions + Vanilla JS IntersectionObserver.
+Zero libraries. Zero GSAP. Zero AOS.
+
+── PAGE LOAD ──
+- Preloader: full dark screen, "samir.dev" text fades + scales out after
+  1.2s, then page content fades in smoothly.
+- Hero heading: each word animates in one-by-one —
+  translateY(40px)→0 + opacity 0→1, staggered 120ms per word.
+- Hero subtext fades in after heading (delay: 600ms).
+- CTA buttons slide up with slight bounce after subtext (delay: 900ms).
+- "Available for work" badge pulses softly on load
+  (scale 1→1.05→1, infinite 2s loop).
+
+── NAVBAR ──
+- Scrolling down: navbar slides up (translateY(-100%)), transition 300ms.
+- Scrolling up: slides back in smoothly.
+- Nav links: underline draws left-to-right on hover
+  (CSS ::after, width 0→100%, 250ms ease).
+- "Let's Talk" button: border sweeps clockwise on hover.
+
+── HERO ──
+- Marquee ticker: infinite smooth horizontal scroll of tech stack names,
+  pauses on hover.
+- Background: subtle slow radial gradient drift — violet glow shifts
+  gently (CSS keyframe, 8s loop).
+
+── SCROLL-TRIGGERED (IntersectionObserver, threshold 0.15) ──
+- Every section and its children start hidden:
+  opacity: 0; transform: translateY(30px)
+- On viewport enter: opacity→1, translateY→0, transition 0.6s ease.
+- Children stagger with 80ms delay increments
+  (JS assigns --delay CSS custom property per child).
+- Section headings: slide in from left (translateX(-30px)→0).
+- Stat numbers: count up from 0 to final value on enter
+  (JS counter, 1.5s duration, easeOut curve).
+
+── SKILLS ──
+- Skill bars: width animates 0%→final% on scroll enter,
+  transition 1.2s cubic-bezier(0.4,0,0.2,1), staggered per bar.
+- Bar fill: violet→emerald gradient sweep.
+- Tool cards: pop in with scale(0.85)→1 + opacity 0→1, staggered 60ms.
+
+── TIMELINE ──
+- Vertical line draws downward (height 0→100%) on scroll enter.
+- Each node fades in sequentially as line reaches it (stagger 200ms).
+- Year labels slide from left, event text from right simultaneously.
+
+── PROJECT CARDS ──
+- Cards enter: rotateX(8deg)+translateY(20px)→both 0, opacity 0→1.
+- Hover: translateY(-6px) + subtle box-shadow spread, 250ms ease.
+- Tech tag pills: background flashes violet on hover for 200ms.
+- Filter tabs: active indicator slides horizontally (CSS left transition).
+- Filter change: hidden cards do scale(0.9)+opacity 0,
+  visible cards animate back in with stagger.
+
+── CERTIFICATE CARDS ──
+- Hover: subtle rotateY(0→8deg) flip, perspective 800px, 300ms ease.
+- Year badge: bounces in (scale 0→1.2→1) on viewport enter.
+
+── CONTACT ──
+- Form fields: border-bottom draws left-to-right on focus
+  (CSS ::after, width 0→100%, violet, 300ms).
+- Labels: float up and shrink on focus (float label animation).
+- Submit button: background fills from left on hover
+  (::before pseudo sliding in), 300ms.
+- On submit: button shows CSS spinning loader, then checkmark
+  with stroke-draw animation.
+
+── CURSOR (DESKTOP ONLY) ──
+- Two layers: small 10px filled violet dot + 36px hollow ring
+  following with lerp lag in JS.
+- On hovering links/buttons: ring scales to 60px, turns emerald, 200ms.
+- On click: both layers shrink (scale 0.7) then spring back.
+
+── FOOTER ──
+- Logo "samir.dev" reveals with typewriter effect on scroll enter
+  (chars appear one by one, blinking cursor, then stops).
+- Links stagger fade up on enter.
+
+── MISCELLANEOUS ──
+- Scroll progress bar: 2px violet line at very top of page,
+  fills left-to-right as user scrolls (JS + CSS width).
+- All transforms use will-change: transform sparingly for GPU layers.
+- Reduced motion: all animations wrapped in
+  @media (prefers-reduced-motion: no-preference) {}
+  so accessibility is fully respected.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━
+📐 LAYOUT — SECTION BY SECTION
+━━━━━━━━━━━━━━━━━━━━━━━━━
+
+── NAV ──
+- Sticky, blur-backdrop (backdrop-filter: blur(12px)).
+- Logo: "samir.dev" in Space Grotesk bold, left side.
+- Links: Home · About · Skills · Projects · Contact
+- Right: "Let's Talk →" (violet border, hover fill).
+- Mobile: hamburger icon → full-screen dark slide-out drawer,
+  links stagger in on open, tap outside to close.
+
+── HERO ──
+- Full 100vh height.
+- Top-left badge: "Available for work ✦" (green dot, soft green text,
+  dark pill bg).
+- Giant heading two lines:
+    Line 1: "Hi, I'm Samir."  (white, weight 800)
+    Line 2: "I Build the Web." ("Web" in violet or outlined/stroke style)
+- Subtext: "Full Stack Developer · MERN Stack · PHP · Based in India"
+- CTAs: "View Projects →" (violet filled) + "Let's Connect" (ghost).
+- Bottom: horizontal marquee ticker (muted):
+  "React · Node.js · MongoDB · Next.js · PHP · MySQL · Express.js · Figma ·"
+
+── ABOUT ──
+- Two-column desktop, stacked mobile.
+- Left: heading "About Me." + paragraph:
+  "I'm a self-taught full-stack developer with 3.5 years of experience.
+   Currently working at adXcode Agency while pursuing my BCA at ITM SLS
+   Baroda University — because learning never really stops."
+- Trait tags: "Problem Solver" · "Fast Learner" · "Client-Focused" ·
+  "Creative UI"
+- Right: 2×2 stat grid:
+  → 3.5+ / Years Exp
+  → 10+  / Projects
+  → 100% / Satisfaction
+  → 24/7 / Support
+
+── SKILLS ──
+- Heading: "Stack & Tools"
+- Animated horizontal skill bars:
+  HTML 95% · CSS 90% · JavaScript 85% · PHP 90% · Node.js 75%
+  Express.js 70% · MongoDB 75% · React 70% · Next.js 70% · MySQL 98%
+- Tools grid (dark icon cards):
+  VS Code · Postman · Git · GitHub · Figma · Supabase · MySQL ·
+  Chrome DevTools
+
+── EDUCATION & TIMELINE ──
+- Heading: "Journey"
+- Vertical animated timeline:
+  2021 → Started coding (HTML/CSS/JS)
+  2022 → Mastered React & modern JS (ES6+)
+  2023 → Backend: Node.js, Express, MongoDB, MySQL
+  2023 → Joined adXcode Agency
+  2024 → MERN expertise + certifications
+  2025 → BCA @ ITM SLS Baroda University
+- Two education cards:
+  → BCA · ITM SLS Baroda University · 2025–2028 · In Progress
+  → 12th Commerce · The Iqbal Union High School · 2023–2025 · Completed
+
+── CERTIFICATES ──
+- Heading: "Certifications"
+- 2×2 grid desktop, horizontal scroll on mobile.
+- Each card: dark bg, year badge (top right), cert name, issuer,
+  tech tag pills at bottom.
+  → Web Design & Development — Skill India Digital (2024)
+  → PHP Development — Great Learning (2024)
+  → Skill Development Program — HDRC (2025)
+  → Deloitte Job Simulation — Deloitte (2025)
+
+── ACHIEVEMENTS ──
+- Heading: "Recognition"
+- 3-col grid of minimal dark cards, icon + title + year + short desc.
+  → Top Performer at adXcode Agency (2024) — Performance Award
+  → Open Source Contributor (Ongoing) — Community Contribution
+  → Full Stack Development Expert (2024) — Technical Excellence
+  → Client Satisfaction Champion (Ongoing) — 100% satisfaction rate
+  → Learning & Growth Advocate (2023–2028) — BCA + full-time work
+  → Problem Solving Excellence (Ongoing) — Creative technical solutions
+
+── PROJECTS ──
+- Heading: "Selected Work"
+- Filter tabs: All · Frontend · Backend · Full Stack
+- 3-col grid desktop → 1-col mobile. Cards: dark bg, name, desc, tag pills,
+  Code + Live Demo links.
+  → E-Commerce Platform (React, Node.js, MongoDB, Stripe) — Full Stack
+  → Task Management App (React, Firebase, Tailwind CSS) — Full Stack
+  → Social Media Dashboard (React, D3.js, Node.js, MongoDB) — Full Stack
+  → Weather Dashboard (React, OpenWeather API, Chart.js) — Frontend
+  → REST API Server (Node.js, Express, PostgreSQL, JWT) — Backend
+  → Portfolio Website (Next.js, Tailwind CSS, Framer Motion) — Frontend
+- Images: replaced with styled gradient placeholder divs (no real images).
+
+── CONTACT ──
+- Heading: "Let's Build Something"
+- Two columns: left = contact info, right = animated form.
+- Info: Email · Phone · Location · Availability
+- Form fields: Full Name · Email · Subject · Message (live 500-char counter)
+- Submit: "Send Message →" violet button with loading + success animation.
+- Note: "I typically reply within 24 hours."
+
+── FOOTER ──
+- Logo: "samir.dev" (typewriter reveal)
+- Short bio line center.
+- Quick nav links.
+- Bottom: "© 2025 Samir Mansuri · Made with ❤️ in India"
+- NO popups. NO cookie banners. NO newsletter boxes.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━
+📱 RESPONSIVENESS — CRITICAL
+━━━━━━━━━━━━━━━━━━━━━━━━━
+- Mobile-first CSS. Use CSS Grid + Flexbox only. Zero frameworks.
+- Breakpoints: 480px · 768px · 1024px · 1280px
+- Hero heading: clamp(2.5rem, 8vw, 6rem) — scales fluidly.
+- All grids collapse to single column on mobile.
+- Skill bars, timeline, cert cards, project grid all reflow cleanly.
+- Hamburger nav with slide-out drawer (pure JS).
+- Touch targets minimum 44px height.
+- Custom cursor disabled on touch devices (pointer: coarse media query).
+- Marquee ticker speed reduced slightly on mobile.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━
+⚙️ TECHNICAL RULES
+━━━━━━━━━━━━━━━━━━━━━━━━━
+- Single file: all HTML, CSS (in <style>), and JS (in <script>) in one .html.
+- No jQuery. No GSAP. No AOS. No Bootstrap. No Tailwind. No frameworks.
+- Google Fonts via <link>: Space Grotesk + Inter.
+- CSS custom properties (variables) for all colors, spacing, and font sizes.
+- IntersectionObserver pattern for all scroll animations.
+- Navbar hide/show on scroll direction (JS scroll event, direction detection).
+- All images replaced with CSS gradient placeholder divs (no broken imgs).
+- Meta tags: viewport, description, og:title included.
+- Smooth scroll: scroll-behavior: smooth on html.
+- Custom scrollbar: thin, dark track, violet thumb, webkit + standard.
+- JS counter animation for stat numbers (easeOut, 1.5s).
+- Preloader must fully complete before page is interactive.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━
+🚫 STRICT DON'Ts
+━━━━━━━━━━━━━━━━━━━━━━━━━
+- No blue color anywhere on the page.
+- No rainbow or pink-to-purple gradients.
+- No hero illustrations or 3D blobs.
+- No cookie popups or modals.
+- No title "Software Developer" in the adXcode section — just "adXcode Agency".
+- No AI-sounding copy like "I'm passionate about creating synergies..."
+- No generic neon cyan or hot pink glows.
+- No stock photo placeholders (use CSS-only gradient divs instead).
+- The finished site must NOT look AI-generated — it must feel like a
+  real developer built it with taste

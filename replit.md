@@ -4,6 +4,10 @@
 
 pnpm workspace monorepo using TypeScript. Each package manages its own dependencies.
 
+## Artifacts
+
+- **`artifacts/portfolio`** (`@workspace/portfolio`) — Samir Mansuri's personal portfolio website. React + Vite, dark "Neon Noir" theme, all sections with CSS/JS animations (no GSAP/AOS), deployed at `/`. Uses Space Grotesk + Inter fonts.
+
 ## Stack
 
 - **Monorepo tool**: pnpm workspaces
