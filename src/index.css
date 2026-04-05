@@ -5,20 +5,20 @@
   --font-sans: 'Inter', sans-serif;
   --font-display: 'Space Grotesk', sans-serif;
 
-  --color-background: hsl(0 0% 3%); /* #080808 */
-  --color-foreground: hsl(0 0% 96%); /* #F5F5F5 */
+  --color-background: hsl(264 8% 5%); /* #0A0A0F - Pitch black with cool tone */
+  --color-foreground: hsl(0 0% 100%); /* #FFFFFF - Pure white */
   
-  --color-surface: hsl(0 0% 7%); /* #111111 */
-  --color-surface-hover: hsl(0 0% 9%); /* #161616 */
+  --color-surface: hsl(264 8% 7%); /* #12121A - Dark navy-black for cards */
+  --color-surface-hover: hsl(264 8% 10%); /* #1A1A28 - Slightly lifted */
   
-  --color-primary: hsl(255 92% 76%); /* #A78BFA - Soft electric violet */
-  --color-secondary: hsl(158 64% 52%); /* #34D399 - Emerald mint */
+  --color-primary: hsl(186 100% 50%); /* #00F5FF - Electric cyan */
+  --color-secondary: hsl(332 100% 57%); /* #FF2D78 - Hot magenta */
   
-  --color-muted: hsl(220 9% 46%); /* #6B7280 */
-  --color-muted-foreground: hsl(220 9% 60%);
+  --color-muted: hsl(255 10% 53%); /* #6E6E8A - Cool violet-gray */
+  --color-muted-foreground: hsl(255 10% 60%);
   
-  --color-border: hsl(0 0% 12%); /* #1F1F1F */
-  --color-border-hover: hsl(0 0% 18%); /* #2D2D2D */
+  --color-border: hsl(254 16% 18%); /* #1E1E2E - Dark violet-gray border */
+  --color-border-hover: hsl(254 16% 23%); /* #2A2A3E - Slightly lighter border */
 }
 
 :root {
@@ -46,10 +46,10 @@
     width: 6px;
   }
   ::-webkit-scrollbar-track {
-    background: var(--color-background);
+    background: var(--color-surface);
   }
   ::-webkit-scrollbar-thumb {
-    background: hsl(0 0% 18%);
+    background: hsl(186 100% 50%);
     border-radius: 10px;
   }
   ::-webkit-scrollbar-thumb:hover {
@@ -80,8 +80,8 @@
 }
 
 @keyframes pulse-glow {
-  0%, 100% { opacity: 1; box-shadow: 0 0 10px 0px rgba(52, 211, 153, 0.4); }
-  50% { opacity: 0.8; box-shadow: 0 0 20px 2px rgba(52, 211, 153, 0.6); }
+  0%, 100% { opacity: 1; box-shadow: 0 0 10px 0px rgba(0, 245, 255, 0.4); }
+  50% { opacity: 0.8; box-shadow: 0 0 20px 2px rgba(0, 245, 255, 0.6); }
 }
 
 .animate-pulse-glow {
