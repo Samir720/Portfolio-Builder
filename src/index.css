@@ -5,20 +5,20 @@
   --font-sans: 'Inter', sans-serif;
   --font-display: 'Space Grotesk', sans-serif;
 
-  --color-background: hsl(0 0% 29%); /* #4A4A4A - Charcoal black */
-  --color-foreground: hsl(60 100% 97%); /* #FFFFE3 - Soft ivory */
+  --color-background: hsl(0 0% 6%); /* #0F0F0F - Almost black */
+  --color-foreground: hsl(0 0% 97%); /* #F8F8F8 - Off-white */
   
-  --color-surface: hsl(0 0% 79%); /* #CBCBCB - Cool gray for cards */
-  --color-surface-hover: hsl(0 0% 75%); /* #BFBFBF - Slightly darker gray on hover */
+  --color-surface: hsl(0 0% 12%); /* #1F1F1F - Charcoal for cards */
+  --color-surface-hover: hsl(0 0% 15%); /* #262626 - Slightly lifted on hover */
   
-  --color-primary: hsl(212 21% 59%); /* #6D8196 - Steel blue accent */
-  --color-secondary: hsl(0 0% 70%); /* #B3B3B3 - Medium gray secondary */
+  --color-primary: hsl(220 13% 52%); /* #64748B - Slate blue accent */
+  --color-secondary: hsl(174 71% 42%); /* #14B8A6 - Teal accent */
   
-  --color-muted: hsl(0 0% 55%); /* #8C8C8C - Muted gray */
-  --color-muted-foreground: hsl(0 0% 50%); /* #808080 - Darker muted */
+  --color-muted: hsl(220 13% 42%); /* #525A6F - Muted slate */
+  --color-muted-foreground: hsl(220 13% 35%); /* #434B5E - Darker muted */
   
-  --color-border: hsl(0 0% 60%); /* #999999 - Border gray */
-  --color-border-hover: hsl(212 15% 54%); /* #6D7A8C - Steel blue border hover */
+  --color-border: hsl(0 0% 20%); /* #333333 - Professional border */
+  --color-border-hover: hsl(174 71% 42%); /* #14B8A6 - Teal border on hover */
 }
 
 :root {
@@ -53,7 +53,7 @@
     border-radius: 10px;
   }
   ::-webkit-scrollbar-thumb:hover {
-    background: hsl(212 21% 50%);
+    background: var(--color-secondary);
   }
 }
 
@@ -80,8 +80,8 @@
 }
 
 @keyframes pulse-glow {
-  0%, 100% { opacity: 1; box-shadow: 0 0 10px 0px rgba(109, 129, 150, 0.4); }
-  50% { opacity: 0.8; box-shadow: 0 0 20px 2px rgba(109, 129, 150, 0.6); }
+  0%, 100% { opacity: 1; box-shadow: 0 0 10px 0px rgba(100, 116, 139, 0.4); }
+  50% { opacity: 0.8; box-shadow: 0 0 20px 2px rgba(100, 116, 139, 0.6); }
 }
 
 .animate-pulse-glow {

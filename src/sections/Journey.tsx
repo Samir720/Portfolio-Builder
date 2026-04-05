@@ -43,7 +43,7 @@ export function Journey() {
                 <Reveal key={i} delay={i * 200} className={`relative flex items-center justify-between md:justify-normal ${isEven ? 'md:flex-row-reverse' : ''}`}>
                   
                   {/* Center Dot */}
-                  <div className="absolute left-4 h-4 w-4 -translate-x-[7px] rounded-full border-2 border-background bg-primary shadow-[0_0_10px_rgba(109,129,150,0.5)] md:left-1/2 md:-translate-x-1/2 z-10" />
+                  <div className="absolute left-4 h-4 w-4 -translate-x-[7px] rounded-full border-2 border-background bg-primary shadow-[0_0_10px_rgba(100,116,139,0.5)] md:left-1/2 md:-translate-x-1/2 z-10" />
 
                   {/* Content Box */}
                   <div className={`ml-12 w-full md:ml-0 md:w-[calc(50%-3rem)] ${isEven ? 'md:pl-12' : 'md:pr-12 md:text-right'}`}>

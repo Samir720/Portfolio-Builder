@@ -88,7 +88,7 @@ export function Projects() {
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
           {filteredProjects.map((project, i) => (
             <Reveal key={project.title} delay={i * 100}>
-              <div className="group flex h-full flex-col overflow-hidden rounded-2xl border border-border bg-surface transition-all duration-500 hover:-translate-y-2 hover:border-primary/50 hover:shadow-[0_10px_30px_-10px_rgba(109,129,150,0.15)]">
+              <div className="group flex h-full flex-col overflow-hidden rounded-2xl border border-border bg-surface transition-all duration-500 hover:-translate-y-2 hover:border-primary/50 hover:shadow-[0_10px_30px_-10px_rgba(100,116,139,0.15)]">
                 
                 {/* CSS Placeholder Image */}
                 <div className={cn("h-48 w-full bg-gradient-to-br transition-transform duration-700 group-hover:scale-105", project.gradient)}>
