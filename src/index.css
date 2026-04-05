@@ -5,20 +5,20 @@
   --font-sans: 'Inter', sans-serif;
   --font-display: 'Space Grotesk', sans-serif;
 
-  --color-background: hsl(264 8% 5%); /* #0A0A0F - Pitch black with cool tone */
-  --color-foreground: hsl(0 0% 100%); /* #FFFFFF - Pure white */
+  --color-background: hsl(0 0% 29%); /* #4A4A4A - Charcoal black */
+  --color-foreground: hsl(60 100% 97%); /* #FFFFE3 - Soft ivory */
   
-  --color-surface: hsl(264 8% 7%); /* #12121A - Dark navy-black for cards */
-  --color-surface-hover: hsl(264 8% 10%); /* #1A1A28 - Slightly lifted */
+  --color-surface: hsl(0 0% 79%); /* #CBCBCB - Cool gray for cards */
+  --color-surface-hover: hsl(0 0% 75%); /* #BFBFBF - Slightly darker gray on hover */
   
-  --color-primary: hsl(186 100% 50%); /* #00F5FF - Electric cyan */
-  --color-secondary: hsl(332 100% 57%); /* #FF2D78 - Hot magenta */
+  --color-primary: hsl(212 21% 59%); /* #6D8196 - Steel blue accent */
+  --color-secondary: hsl(0 0% 70%); /* #B3B3B3 - Medium gray secondary */
   
-  --color-muted: hsl(255 10% 53%); /* #6E6E8A - Cool violet-gray */
-  --color-muted-foreground: hsl(255 10% 60%);
+  --color-muted: hsl(0 0% 55%); /* #8C8C8C - Muted gray */
+  --color-muted-foreground: hsl(0 0% 50%); /* #808080 - Darker muted */
   
-  --color-border: hsl(254 16% 18%); /* #1E1E2E - Dark violet-gray border */
-  --color-border-hover: hsl(254 16% 23%); /* #2A2A3E - Slightly lighter border */
+  --color-border: hsl(0 0% 60%); /* #999999 - Border gray */
+  --color-border-hover: hsl(212 15% 54%); /* #6D7A8C - Steel blue border hover */
 }
 
 :root {
@@ -46,14 +46,14 @@
     width: 6px;
   }
   ::-webkit-scrollbar-track {
-    background: var(--color-surface);
+    background: var(--color-background);
   }
   ::-webkit-scrollbar-thumb {
-    background: hsl(186 100% 50%);
+    background: var(--color-primary);
     border-radius: 10px;
   }
   ::-webkit-scrollbar-thumb:hover {
-    background: var(--color-primary);
+    background: hsl(212 21% 50%);
   }
 }
 
@@ -80,8 +80,8 @@
 }
 
 @keyframes pulse-glow {
-  0%, 100% { opacity: 1; box-shadow: 0 0 10px 0px rgba(0, 245, 255, 0.4); }
-  50% { opacity: 0.8; box-shadow: 0 0 20px 2px rgba(0, 245, 255, 0.6); }
+  0%, 100% { opacity: 1; box-shadow: 0 0 10px 0px rgba(109, 129, 150, 0.4); }
+  50% { opacity: 0.8; box-shadow: 0 0 20px 2px rgba(109, 129, 150, 0.6); }
 }
 
 .animate-pulse-glow {

@@ -175,7 +175,7 @@ export function Contact() {
                 disabled={status === "loading" || status === "success"}
                 className={cn(
                   "mt-6 flex w-full items-center justify-center gap-2 rounded-xl py-4 font-bold text-background transition-all",
-                  status === "success" ? "bg-secondary" : status === "error" ? "bg-red-500/80" : "bg-primary hover:bg-primary/90 hover:shadow-[0_4px_20px_rgba(167,139,250,0.3)]",
+                  status === "success" ? "bg-secondary" : status === "error" ? "bg-red-500/80" : "bg-primary hover:bg-primary/90 hover:shadow-[0_4px_20px_rgba(109,129,150,0.3)]",
                   status === "loading" && "opacity-80 cursor-not-allowed"
                 )}
               >

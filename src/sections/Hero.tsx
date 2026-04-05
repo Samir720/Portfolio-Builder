@@ -72,7 +72,7 @@ export function Hero() {
         >
           <a 
             href="#projects" 
-            className="group flex items-center gap-2 rounded-xl bg-gradient-to-r from-primary to-primary/90 px-8 py-4 font-semibold text-background shadow-[0_4px_20px_rgba(167,139,250,0.25)] transition-all hover:scale-105 hover:shadow-[0_4px_25px_rgba(167,139,250,0.4)]"
+            className="group flex items-center gap-2 rounded-xl bg-gradient-to-r from-primary to-primary/90 px-8 py-4 font-semibold text-background shadow-[0_4px_20px_rgba(109,129,150,0.25)] transition-all hover:scale-105 hover:shadow-[0_4px_25px_rgba(109,129,150,0.4)]"
           >
             View Projects
             <span className="transition-transform group-hover:translate-x-1">→</span>

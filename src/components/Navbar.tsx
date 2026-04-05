@@ -123,7 +123,7 @@ export function Navbar() {
           ))}
           <a 
             href="#contact"
-            className="mt-8 mx-auto w-max inline-block rounded-full bg-gradient-to-r from-primary to-primary/80 px-8 py-4 font-display font-bold text-background shadow-[0_0_20px_rgba(167,139,250,0.3)]"
+            className="mt-8 mx-auto w-max inline-block rounded-full bg-gradient-to-r from-primary to-primary/80 px-8 py-4 font-display font-bold text-background shadow-[0_0_20px_rgba(109,129,150,0.3)]"
             onClick={() => setIsMobileMenuOpen(false)}
           >
             Let's Talk
