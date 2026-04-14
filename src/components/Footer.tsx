@@ -36,8 +36,8 @@ export function Footer() {
             <div className="flex gap-6 text-sm font-medium text-muted">
               <a href="#about" className="hover:text-primary transition-colors">About</a>
               <a href="#projects" className="hover:text-primary transition-colors">Projects</a>
-              <a href="https://github.com" target="_blank" rel="noreferrer" className="hover:text-primary transition-colors">GitHub</a>
-              <a href="https://linkedin.com" target="_blank" rel="noreferrer" className="hover:text-primary transition-colors">LinkedIn</a>
+              <a href="https://github.com/Samir720/" target="_blank" rel="noreferrer" className="hover:text-primary transition-colors">GitHub</a>
+              <a href="https://linkedin.com/in/samirxdev/" target="_blank" rel="noreferrer" className="hover:text-primary transition-colors">LinkedIn</a>
             </div>
           </Reveal>
 
@@ -46,7 +46,7 @@ export function Footer() {
         <Reveal delay={400}>
           <div className="mt-12 border-t border-border/50 pt-8 text-center text-xs text-muted-foreground flex flex-col md:flex-row justify-between items-center gap-4">
             <p>© {new Date().getFullYear()} Samir Mansuri. All rights reserved.</p>
-            <p>Made with ❤️ in India.</p>
+            <p>Made and Maintain by Samir Mansuri.</p>
           </div>
         </Reveal>
       </div>
